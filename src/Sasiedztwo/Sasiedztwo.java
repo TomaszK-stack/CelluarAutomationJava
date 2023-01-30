@@ -6,6 +6,7 @@ import Program.MatrixButtons.*;
 
 import java.net.SocketImpl;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Sasiedztwo {
     SimpleMatrix simpleMatrix;
@@ -24,25 +25,31 @@ public abstract class Sasiedztwo {
     }
 
     public void program_glowny() {
-
-        MatrixButtons.printmatrix(simpleMatrix);
-        for (int i = 0; i < simpleMatrix.numRows(); i++) {
-            for (int j = 0; j < simpleMatrix.numRows(); j++) {
-                if (i == 0 || j == 0 || i == simpleMatrix.numRows() - 1 || j == simpleMatrix.numCols() - 1) {
-                    komorka_brzeg(i, j);
-
-                } else {
-                    komorka_srodek(i, j);
-                }
-
-
-            }
-        }
+        System.out.println("Rozpoczynamy działanie programu, aby zakończyć działanie w którymś kroku wpisz q w konsoli");
         System.out.println();
-        MatrixButtons.printmatrix(simpleMatrix);
+        Scanner sc = new Scanner(System.in);
+        String line = "";
+        while (line != "q") {
+            copy_matrix = new SimpleMatrix(simpleMatrix);
 
+            for (int i = 0; i < simpleMatrix.numRows(); i++) {
+                for (int j = 0; j < simpleMatrix.numRows(); j++) {
+                    if (i == 0 || j == 0 || i == simpleMatrix.numRows() - 1 || j == simpleMatrix.numCols() - 1) {
+                        komorka_brzeg(i, j);
+
+                    } else {
+                        komorka_srodek(i, j);
+                    }
+
+
+                }
+            }
+
+            System.out.println();
+            MatrixButtons.printmatrix(simpleMatrix);
+            line = sc.nextLine();
+        }
     }
-
 
     public void komorka_brzeg(int i, int j) {
     }
