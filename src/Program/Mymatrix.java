@@ -3,9 +3,15 @@ package Program;
 import java.util.Arrays;
 
 public class Mymatrix {
-    int[][] my_matrix;
+    public int[][] my_matrix;
     int row;
     int columns;
+    public Mymatrix(int[][] tabela){
+        this.my_matrix = tabela;
+        this.row = my_matrix.length;
+        this.columns = my_matrix[0].length;
+    }
+
 
     public Mymatrix(Mymatrix mymatrix) {
         this.row = mymatrix.numRows();
@@ -14,12 +20,13 @@ public class Mymatrix {
     }
 
     public static void main(String[] args){
-        Mymatrix mymatrix = new Mymatrix(5,5);
-        mymatrix.set(4,4,3);
-        Mymatrix mymatrix1 = new Mymatrix(mymatrix);
-        MatrixButtons.printmatrix(mymatrix1);
-        mymatrix.set(4,4,4);
-        MatrixButtons.printmatrix(mymatrix1);
+//        Mymatrix mymatrix = new Mymatrix(5,5);
+//        mymatrix.set(4,4,3);
+//        Mymatrix mymatrix1 = new Mymatrix(mymatrix);
+//        MatrixButtons.printmatrix(mymatrix1);
+//        mymatrix.set(4,4,4);
+//        MatrixButtons.printmatrix(mymatrix1);
+
     }
 
     public Mymatrix(int row, int columns) {

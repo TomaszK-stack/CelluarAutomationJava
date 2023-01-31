@@ -4,12 +4,14 @@ import Program.MatrixButtons;
 
 import Program.MatrixButtons.*;
 import Program.Mymatrix;
+import Program.TextFieldFrame;
+
 import java.net.SocketImpl;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Sasiedztwo {
-    Mymatrix mymatrix;
+    public Mymatrix mymatrix;
     Mymatrix copy_matrix;
     ArrayList<Integer> S;
     ArrayList<Integer> B;
@@ -25,11 +27,13 @@ public abstract class Sasiedztwo {
     }
 
     public void program_glowny() {
-        System.out.println("Rozpoczynamy działanie programu, aby zakończyć działanie w którymś kroku wpisz q w konsoli");
-        System.out.println();
+
+
         Scanner sc = new Scanner(System.in);
         String line = "";
-        while (line != "q") {
+
+
+
             copy_matrix = new Mymatrix(mymatrix);
 
             for (int i = 0; i < mymatrix.numRows(); i++) {
@@ -45,10 +49,8 @@ public abstract class Sasiedztwo {
                 }
             }
 
-            System.out.println();
-            MatrixButtons.printmatrix(mymatrix);
-            line = sc.nextLine();
-        }
+
+
     }
 
     public void komorka_brzeg(int i, int j) {
