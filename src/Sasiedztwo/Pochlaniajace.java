@@ -1,11 +1,12 @@
 package Sasiedztwo;
 
+import Program.Mymatrix;
 import org.ejml.simple.SimpleMatrix;
 
 import java.util.ArrayList;
 
 public class Pochlaniajace extends Odbijajace{
-    public Pochlaniajace(SimpleMatrix simpleMatrix, ArrayList<Integer> s, ArrayList<Integer> b) {
+    public Pochlaniajace(Mymatrix simpleMatrix, ArrayList<Integer> s, ArrayList<Integer> b) {
         super(simpleMatrix, s, b);
     }
 

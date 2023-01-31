@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import Program.Mymatrix;
 import javax.swing.*;
-
 import Sasiedztwo.Odbijajace;
 import Sasiedztwo.Pochlaniajace;
 import Sasiedztwo.Przenikajace;
-import org.ejml.simple.SimpleMatrix;
+
 
 public class MatrixButtons {
     private JFrame frame;
+
     private JPanel buttonPanel;
-    private SimpleMatrix matrix;
+    private Mymatrix matrix;
     private JTextField matrixTextField;
 
     public MatrixButtons(int rows, int cols) {
-        // Initialize the matrix with all values set to 0
-        matrix = new SimpleMatrix(rows, cols);
+        matrix = new Mymatrix(rows, cols);
 
         // Create the GUI
         frame = new JFrame("Matrix Buttons");
@@ -39,11 +39,9 @@ public class MatrixButtons {
             }
         }
 
-        // Create the matrix text field
         matrixTextField = new JTextField();
         matrixTextField.setEditable(false);
 
-        // Create the DONE button
         JButton doneButton = new JButton("DONE");
         doneButton.addActionListener(new ActionListener() {
             @Override
@@ -53,7 +51,6 @@ public class MatrixButtons {
             }
         });
 
-        // Add the button panel and matrix text field to the frame
         frame.add(buttonPanel, BorderLayout.CENTER);
         frame.add(matrixTextField, BorderLayout.NORTH);
         frame.add(doneButton, BorderLayout.SOUTH);
@@ -88,7 +85,7 @@ public class MatrixButtons {
     }
 
     public static void main(String[] args) {
-        new MatrixButtons(5, 5);
+        new MatrixButtons(10, 10);
     }
 
     public void program_glowny() {
@@ -143,7 +140,7 @@ public class MatrixButtons {
 
     }
 
-    public static void printmatrix(SimpleMatrix simpleMatrix) {
+    public static void printmatrix(Mymatrix simpleMatrix) {
         DecimalFormat decimalFormat = new DecimalFormat("0");
 
         for (int i = 0; i < simpleMatrix.numRows(); i++) {

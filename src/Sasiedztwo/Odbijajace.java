@@ -1,12 +1,12 @@
 package Sasiedztwo;
 
-import org.ejml.simple.SimpleMatrix;
+import Program.Mymatrix;
 
 import java.util.ArrayList;
 
 public class Odbijajace extends Sasiedztwo{
-    public Odbijajace(SimpleMatrix simpleMatrix, ArrayList<Integer> s, ArrayList<Integer> b) {
-        super(simpleMatrix, s, b);
+    public Odbijajace(Mymatrix mymatrix, ArrayList<Integer> s, ArrayList<Integer> b) {
+        super(mymatrix, s, b);
     }
 
     @Override
@@ -23,11 +23,11 @@ public class Odbijajace extends Sasiedztwo{
 
         int liczba_sasiadow = (int) sasiedzi.stream().filter(w-> w==1).count();
 
-        if(simpleMatrix.get(i,j) ==1 && !S.contains(liczba_sasiadow)){
-            simpleMatrix.set(i,j,0);
+        if(mymatrix.get(i,j) ==1 && !S.contains(liczba_sasiadow)){
+            mymatrix.set(i,j,0);
 
-        } else if (simpleMatrix.get(i,j) ==0 && B.contains(liczba_sasiadow)) {
-            simpleMatrix.set(i,j,1);
+        } else if (mymatrix.get(i,j) ==0 && B.contains(liczba_sasiadow)) {
+            mymatrix.set(i,j,1);
         }
 
 

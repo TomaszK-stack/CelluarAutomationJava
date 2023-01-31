@@ -1,12 +1,13 @@
 package Sasiedztwo;
 
-import org.ejml.simple.SimpleMatrix;
+import Program.Mymatrix;
+
 
 import java.util.ArrayList;
 
 public class Przenikajace extends Sasiedztwo{
-    public Przenikajace(SimpleMatrix simpleMatrix, ArrayList<Integer> s, ArrayList<Integer> b) {
-        super(simpleMatrix, s, b);
+    public Przenikajace(Mymatrix mymatrix, ArrayList<Integer> s, ArrayList<Integer> b) {
+        super(mymatrix, s, b);
     }
 
     @Override
@@ -15,21 +16,21 @@ public class Przenikajace extends Sasiedztwo{
 
             ArrayList<Integer> sasiedzi = new ArrayList<>();
             // Add neighboring cells to the ArrayList, taking into account the cells at the opposite edge of the matrix
-            sasiedzi.add((int) copy_matrix.get((i-1+simpleMatrix.numRows())%simpleMatrix.numRows(), (j-1+simpleMatrix.numCols())%simpleMatrix.numCols()));
-            sasiedzi.add((int) copy_matrix.get((i-1+simpleMatrix.numRows())%simpleMatrix.numRows(), j));
-            sasiedzi.add((int) copy_matrix.get((i-1+simpleMatrix.numRows())%simpleMatrix.numRows(), (j+1)%simpleMatrix.numCols()));
-            sasiedzi.add((int) copy_matrix.get(i, (j-1+simpleMatrix.numCols())%simpleMatrix.numCols()));
-            sasiedzi.add((int) copy_matrix.get(i, (j+1)%simpleMatrix.numCols()));
-            sasiedzi.add((int) copy_matrix.get((i+1)%simpleMatrix.numRows(), (j-1+simpleMatrix.numCols())%simpleMatrix.numCols()));
-            sasiedzi.add((int) copy_matrix.get((i+1)%simpleMatrix.numRows(), j));
-            sasiedzi.add((int) copy_matrix.get((i+1)%simpleMatrix.numRows(), (j+1)%simpleMatrix.numCols()));
+            sasiedzi.add((int) copy_matrix.get((i-1+mymatrix.numRows())%mymatrix.numRows(), (j-1+mymatrix.numCols())%mymatrix.numCols()));
+            sasiedzi.add((int) copy_matrix.get((i-1+mymatrix.numRows())%mymatrix.numRows(), j));
+            sasiedzi.add((int) copy_matrix.get((i-1+mymatrix.numRows())%mymatrix.numRows(), (j+1)%mymatrix.numCols()));
+            sasiedzi.add((int) copy_matrix.get(i, (j-1+mymatrix.numCols())%mymatrix.numCols()));
+            sasiedzi.add((int) copy_matrix.get(i, (j+1)%mymatrix.numCols()));
+            sasiedzi.add((int) copy_matrix.get((i+1)%mymatrix.numRows(), (j-1+mymatrix.numCols())%mymatrix.numCols()));
+            sasiedzi.add((int) copy_matrix.get((i+1)%mymatrix.numRows(), j));
+            sasiedzi.add((int) copy_matrix.get((i+1)%mymatrix.numRows(), (j+1)%mymatrix.numCols()));
         int liczba_sasiadow = (int) sasiedzi.stream().filter(w-> w==1).count();
 
-        if(simpleMatrix.get(i,j) ==1 && !S.contains(liczba_sasiadow)){
-            simpleMatrix.set(i,j,0);
+        if(mymatrix.get(i,j) ==1 && !S.contains(liczba_sasiadow)){
+            mymatrix.set(i,j,0);
 
-        } else if (simpleMatrix.get(i,j) ==0 && B.contains(liczba_sasiadow)) {
-            simpleMatrix.set(i,j,1);
+        } else if (mymatrix.get(i,j) ==0 && B.contains(liczba_sasiadow)) {
+            mymatrix.set(i,j,1);
         }
 
 
