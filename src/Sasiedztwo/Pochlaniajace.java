@@ -1,7 +1,6 @@
 package Sasiedztwo;
 
 import Program.Mymatrix;
-import org.ejml.simple.SimpleMatrix;
 
 import java.util.ArrayList;
 
